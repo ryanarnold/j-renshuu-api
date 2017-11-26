@@ -12,5 +12,5 @@ class CategorySerializer(ModelSerializer):
     class Meta:
         '''Meta'''
         model = Category
-        fields = ('desc_english', 'desc_japanese')
+        fields = ('id', 'desc_english', 'desc_japanese')
     

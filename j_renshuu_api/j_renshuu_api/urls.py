@@ -19,4 +19,5 @@ from api import views
 
 urlpatterns = [
     url(r'categories/', views.CategoryList.as_view()),
+    url(r'words/', views.WordList.as_view()),
 ]

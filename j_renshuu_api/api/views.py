@@ -3,8 +3,8 @@ Views
 '''
 
 from rest_framework.generics import ListAPIView
-from .serializers import CategorySerializer
-from .models import Category
+from .serializers import CategorySerializer, WordSerializer
+from .models import Category, Word
 
 class CategoryList(ListAPIView):
     '''
@@ -14,3 +14,13 @@ class CategoryList(ListAPIView):
 
     def get_queryset(self):
         return Category.objects.all()
+
+
+class WordList(ListAPIView):
+    '''
+    Lists all categories.
+    '''
+    serializer_class = WordSerializer
+
+    def get_queryset(self):
+        return Word.objects.all()

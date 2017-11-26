@@ -19,6 +19,8 @@ class WordSerializer(ModelSerializer):
     '''
     Serializer for Words.
     '''
+    category = CategorySerializer(read_only=True)
+
     class Meta:
         '''Meta'''
         model = Word

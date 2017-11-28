@@ -21,3 +21,4 @@ class Word(Model):
     kana = CharField(max_length=100)
     kanji = CharField(max_length=100, null=True)
     category = ForeignKey(Category, on_delete=CASCADE)
+    furigana = CharField(max_length=100, null=True)

@@ -24,4 +24,4 @@ class WordSerializer(ModelSerializer):
     class Meta:
         '''Meta'''
         model = Word
-        fields = ('id', 'definition', 'kana', 'kanji', 'category')
+        fields = ('id', 'definition', 'kana', 'kanji', 'category', 'furigana')

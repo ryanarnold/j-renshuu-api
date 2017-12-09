@@ -25,7 +25,7 @@ SECRET_KEY = 'mrb(bjia3@8muq%m!9+ztgq@k@2xurivdzsb_0i0%c&d0nwe=p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,30 +78,22 @@ WSGI_APPLICATION = 'j_renshuu_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    # Running on App Engine.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'j_renshuu',
-            'USER': 'j_renshuu_user',
-            'PASSWORD': 'ilovejrenshuu',
-            'HOST': '/cloudsql/j-renshuu-api:asia-east1:j-renshuu',
-            'PORT': '',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'j_renshuu',
+        'USER': 'j_renshuu_user',
+        'PASSWORD': 'ilovejrenshuu',
+        'PORT': '3306'
     }
+}
+
+DATABASES['default']['HOST'] = '/cloudsql/j-renshuu-api:asia-east1:j-renshuu'
+if os.getenv('GAE_INSTANCE'):
+    pass
 else:
-    # Running locally and connecting to the Cloud SQL proxy.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'j_renshuu',
-            'USER': 'j_renshuu_user',
-            'PASSWORD': 'ilovejrenshuu',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
-        }
-    }
+    DATABASES['default']['HOST'] = '127.0.0.1'
+    DATABASES['default']['PORT'] = '5432'
 
 
 # Password validation

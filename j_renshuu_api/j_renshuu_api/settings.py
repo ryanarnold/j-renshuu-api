@@ -93,9 +93,8 @@ if os.getenv('GAE_INSTANCE'):
     pass
 else:
     # Cloud SQL Proxy
-    # DATABASES['default']['HOST'] = '127.0.0.1'
-    # DATABASES['default']['PORT'] = '5432'
-    pass
+    DATABASES['default']['HOST'] = '127.0.0.1'
+    DATABASES['default']['PORT'] = '5432'
 
 
 # Password validation

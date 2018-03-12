@@ -1,0 +1,1 @@
+env\Scripts\python j_renshuu_api\manage.py runserver
